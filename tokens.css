@@ -1,0 +1,64 @@
+/* ---- self-hosted fonts (assets/fonts/, OFL-1.1: see LICENSE.txt, LICENSE-Montserrat.txt, LICENSE-Lato.txt, SOURCES.txt) ----
+   font-display: optional + <link rel=preload> per page: no layout shift from font swap. ---- */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  font-display: optional;
+  src: url("assets/fonts/montserrat-latin-300-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  font-display: optional;
+  src: url("assets/fonts/montserrat-latin-900-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url("assets/fonts/lato-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url("assets/fonts/lato-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url("assets/fonts/IBMPlexMono-Regular.woff2") format("woff2");
+}
+
+/* ---- tokens: Stratus Studio brand system, adapted (style.css of stratusstudio.eu) ---- */
+:root {
+  --ink: rgb(17, 1, 11);          /* --clr-podst */
+  --accent: rgb(249, 9, 9);       /* --clr-akcent */
+  --accent-deep: hsl(0, 92%, 45%);
+  --neutral: #F1EFE9;             /* --clr-neutralny */
+  --neutral-grey: rgb(229, 223, 223);
+  --paper: #ffffff;
+  --muted: #5a5257;
+
+  /* Self-host both families as woff2 (OFL) in assets/fonts/ – Stratus loads them from Google Fonts CDN, we do not. */
+  --ff-head: "Montserrat", "Segoe UI", system-ui, sans-serif;
+  --ff-body: "Lato", "Segoe UI", system-ui, sans-serif;
+  --ff-mono: "IBM Plex Mono", Consolas, monospace;
+
+  --max: 1110px;
+  --pad: 1rem;
+  --s-400: 1.2rem; --s-600: 1.8rem; --s-700: 3rem; --s-900: 6rem;
+}

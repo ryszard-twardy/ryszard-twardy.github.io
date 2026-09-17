@@ -1,0 +1,20 @@
+Images – assets/img/
+
+portrait.webp (112x112), portrait@2x.webp (224x224)
+   Own photograph of Ryszard Twardy, supplied by the site owner; derived with Pillow (LANCZOS, WebP quality 82)
+   from a 1024x1024 original that is not part of this repository.
+   (c) Ryszard Twardy, all rights reserved. Not covered by any of the third-party licences in this repository.
+
+portrait@640.webp (640x640)
+   Same source photograph as portrait.webp, 640 px derivative for the 320 px hero slot at 2x (Pillow, LANCZOS, WebP).
+   (c) Ryszard Twardy, all rights reserved.
+
+kupferkanne-hero.webp (720x405), kupferkanne-hero@2x.webp (1437x808)
+   Screenshot of the Executive Summary page of the site owner's Kupferkanne Power BI report (fictional brand,
+   synthetic data), exported by the site owner; converted from the PNG export with Pillow (WebP). Added 2026-09-16.
+   (c) Ryszard Twardy, all rights reserved.
+
+synth-defects.svg (viewBox 1600x900)
+   Illustrative table rendering of synth-datagen's built-in defect classes (rows are made up, the defect classes are real),
+   authored for this site on 2026-09-04. Text set in the page's own self-hosted fonts via CSS; no embedded fonts. Added 2026-09-16.
+   (c) Ryszard Twardy, all rights reserved.

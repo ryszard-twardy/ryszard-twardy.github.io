@@ -1,0 +1,162 @@
+/* ---- styles.css: Stratus system; every value comes from tokens.css ---- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; font: inherit; }
+html { color-scheme: light; }
+body { font: 400 1.15rem/1.55 var(--ff-body); color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+strong { font-weight: 700; }
+p:not([class]) { max-width: 80ch; }
+
+.container { width: min(var(--max), 100% - var(--pad) * 2); margin-inline: auto; }
+.pb-900 { padding-block: var(--s-900); }
+.pb-700 { padding-block: var(--s-700); }
+.flow > * + * { margin-top: var(--flow, 2.5rem); }
+
+.skip { position: absolute; left: -999px; top: 8px; background: var(--paper); padding: 8px 12px; }
+.skip:focus { left: 8px; }
+
+/* ---- type ---- */
+.h-primary { font: 900 clamp(2rem, 4vw, 2.6rem)/1.15 var(--ff-head); text-transform: uppercase; letter-spacing: .01em; }
+.h-secondary { font: 700 2rem/1.3 var(--ff-head); }
+.h-tile { font: 700 1.15rem/1.3 var(--ff-head); }
+.sub-hero { font: 300 1.25rem/1.4 var(--ff-head); text-transform: uppercase; max-width: 60ch; }
+.sub-hero strong { font-weight: 700; }
+
+/* red squares around a line, as on Stratus hero subtitles */
+.akcent::before, .akcent::after {
+  content: ""; display: inline-block; width: .6em; height: .6em; margin-inline: .2em; background: var(--accent); vertical-align: baseline;
+}
+
+/* red square bullets (li.kwadrat) */
+ul.kwadrat { list-style: none; line-height: 1.6; }
+ul.kwadrat li { position: relative; padding-left: 20px; padding-bottom: .5em; }
+ul.kwadrat li::before { content: ""; position: absolute; left: 0; top: .55em; width: 8px; height: 8px; background: var(--accent); }
+
+/* ---- header ---- */
+.header { border-bottom: 1px solid var(--neutral-grey); }
+.header .wrap { display: flex; justify-content: space-between; align-items: flex-end; padding-block: .6rem; }
+.wordmark { display: block; color: var(--ink); text-decoration: none; padding-bottom: .2em; border-bottom: 2px solid transparent; }
+.wordmark svg { display: block; }
+/* the global "* { font: inherit }" would override the SVG presentation attributes, so set the wordmark type in CSS */
+.wordmark text { font: 300 22px/1 var(--ff-head); }
+.wordmark text:last-child { font-weight: 900; }
+.wordmark:hover { border-bottom-color: var(--accent); }
+.nav ul { list-style: none; display: flex; gap: 1.5rem; }
+.nav a { text-decoration: none; padding-bottom: .2em; border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a:focus-visible, .nav a[aria-current="page"] { border-bottom-color: var(--accent); }
+
+/* ---- hero: dark band, portrait right (Stratus uses a full-bleed photo with gradient; swap in when you have one) ---- */
+.hero { background: var(--ink); color: var(--neutral); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 3rem; align-items: end; padding-block: 5rem 2.5rem; }
+.hero .portrait { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.hero .h-primary { color: #fff; }
+.hero .sub-hero { margin-top: .6rem; }
+.hero .lead { margin-top: 1.6rem; max-width: 62ch; color: var(--neutral); }
+
+/* ---- about ---- */
+.about { padding-bottom: 0; }
+.about .h-secondary { margin-bottom: 1rem; }
+.about p + p { margin-top: 1rem; }
+
+/* ---- work tiles (oferta-ikony language) ---- */
+.tiles { display: grid; gap: 1.6rem; }
+.tile { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2rem; background: var(--neutral); padding: 2rem; text-decoration: none; color: var(--ink); border-left: 4px solid transparent; transition: border-color .15s, box-shadow .2s; }
+.tile:hover, .tile:focus-visible { border-left-color: var(--accent); box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+.tile .shot { aspect-ratio: 16 / 9; background: var(--paper); border: 1px solid var(--neutral-grey); overflow: hidden; }
+.tile .shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.tile h3 { font: 900 1.35rem/1.25 var(--ff-head); text-transform: uppercase; }
+.tile .problem { margin-top: .8rem; color: var(--muted); font-size: 1.02rem; }
+.tile ul { margin-top: 1rem; font-size: 1.02rem; }
+.tile .note { margin-top: .8rem; font: .85rem/1.5 var(--ff-body); color: var(--muted); }
+.tile .stack { margin-top: .8rem; font: .85rem/1.5 var(--ff-mono); color: var(--muted); }
+.tile .more { margin-top: 1.2rem; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+
+/* ---- dark band (black-bg) ---- */
+.black-bg { background: var(--ink); color: var(--neutral); }
+.black-bg .h-secondary { color: #fff; }
+.black-bg .grid-three { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1.5rem; font-size: 1.05rem; }
+@media (min-width: 1024px) { .black-bg .grid-three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 3rem; } }
+
+/* ---- CTA block (cta-kontakt) ---- */
+.cta-kontakt { background: var(--neutral-grey); }
+.cta-kontakt .h-secondary a { text-decoration: none; }
+.cta-kontakt .h-secondary a:hover { color: var(--accent); }
+.cta-kontakt p.small { margin-top: .4rem; font-weight: 700; }
+
+/* contact links: base-rail style (icon 14px, .75 opacity, 8px gap, steel label, copper underline on hover) */
+.contact-links { list-style: none; margin: 20px 0 0; padding: 0; }
+.contact-links li { padding: 4px 0; }
+.contact-links a { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+.contact-links a:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.contact-links img { width: 14px; height: auto; opacity: .75; }
+.contact-links .loc { color: var(--muted); font-size: 0.95rem; }
+
+
+/* ---- footer ---- */
+footer { background: var(--ink); color: var(--neutral); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; padding-block: 3.5rem 1.5rem; }
+footer a { color: var(--neutral); font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+footer .social { display: flex; gap: 1.2rem; align-items: center; }
+footer .social a { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; text-decoration: none; border: 1px solid rgba(241,239,233,.35); }
+footer .social img { width: 18px; height: 18px; filter: invert(1); }
+footer .copyright { width: 100%; font-size: .85rem; color: var(--neutral-grey); border-top: 1px solid rgba(241,239,233,.2); padding-top: 1rem; }
+
+/* ---- sub-pages (about, privacy): single column ---- */
+.single { max-width: 44rem; }
+.single h1 { margin-bottom: 1.2rem; }
+.single h2 { font: 700 1.5rem/1.3 var(--ff-head); margin-top: 2.5rem; margin-bottom: .8rem; }
+.single p + p { margin-top: 1rem; }
+.single .updated { margin-top: 2.5rem; font-size: .95rem; color: var(--muted); }
+
+/* ---- responsive ---- */
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: 1fr; padding-block: 3rem 2rem; }
+  .hero .portrait { width: 160px; }
+  .tile { grid-template-columns: 1fr; padding: 1.4rem; }
+  .header .wrap { align-items: center; }
+  .nav ul { gap: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
+
+/* ---- stratus ---- */
+/* T1 type */
+.h-primary { text-wrap: balance; }
+.sub-hero, .lead, .tile .problem, .single p { text-wrap: pretty; }
+.h-secondary, .single h1 { letter-spacing: -.01em; }
+.h-secondary::before, .single h1::before { content: ""; display: inline-block; width: .4em; height: .4em; background: var(--accent); margin-right: .5em; vertical-align: .15em; }
+/* T2 hero */
+.hero .wrap { padding-block: 5rem 3rem; }
+/* T3 work */
+#work { padding-block: var(--s-700) var(--s-900); }
+.tile { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }
+.tile .shot { align-self: start; }
+/* T4 contact */
+.cta-kontakt p.small { font-weight: 400; max-width: 62ch; }
+.cta-kontakt p.small strong { font-weight: 700; }
+.contact-links { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; align-items: center; }
+.contact-links li { padding: 0; }
+/* T5 footer */
+footer .wrap { padding-block: 2.5rem 1.5rem; }
+/* T6 sub-pages */
+.single h1 { font: 900 clamp(1.8rem, 3.5vw, 2.4rem)/1.15 var(--ff-head); text-transform: uppercase; }
+.single a { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.single ul.kwadrat li + li { margin-top: .9rem; }
+@media (max-width: 760px) {
+  .hero .wrap { gap: 2rem; }
+  .sub-hero { font-size: 1.1rem; }
+  .tile { grid-template-columns: 1fr; }
+}
+
+/* ---- title band on /about/: the hero grammar (ink, light text, portrait right) at reduced height; /datenschutz/ stays plain ---- */
+.hero.title-band .wrap { grid-template-columns: minmax(0, 1fr) 160px; gap: 2rem; padding-block: 3rem 2rem; }
+@media (max-width: 760px) {
+  .hero.title-band .wrap { grid-template-columns: 1fr; padding-block: 2rem 1.5rem; }
+  .hero.title-band .portrait { width: 120px; }
+}
+
+/* ---- terminal sample in the synth-datagen tile (sd.terminal): the .shot.terminal grammar, in the text column ---- */
+.tile .terminal { margin-top: 1rem; background: var(--ink); color: var(--neutral); padding: .9rem 1.1rem; font: .8rem/1.6 var(--ff-mono); white-space: pre-wrap; overflow-wrap: break-word; }
+.tile .terminal .prompt { color: var(--accent); }
+.tile > div { min-width: 0; } /* grid items stop inheriting the terminal sample's min-content width; break-word then wraps the one long token */

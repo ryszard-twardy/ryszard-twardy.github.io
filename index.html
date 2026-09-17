@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ryszard Twardy – Data Analyst, Power BI and SQL, Erlangen</title>
+<meta name="description" content="Data analyst in Erlangen, Germany. SQL pipelines in BigQuery, Power BI semantic models and DAX, Python data tooling. Projects with the numbers and the code behind them.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="assets/fonts/montserrat-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/montserrat-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/lato-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/lato-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="container wrap">
+    <a class="wordmark" href="./" aria-label="Ryszard Twardy – home"><svg viewBox="0 0 107 41" width="107" height="41" aria-hidden="true" focusable="false"><text x="0" y="15.8" font-family="Montserrat" font-weight="300" font-size="22" fill="currentColor">RYSZARD</text><text x="0" y="40" textLength="106.2" lengthAdjust="spacing" font-family="Montserrat" font-weight="900" font-size="22" fill="currentColor">TWARDY</text></svg></a>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        <li><a href="#work" aria-current="page">Work</a></li>
+        <li><a href="about/">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="container wrap">
+      <div>
+        <h1 class="h-primary">Data analyst, BI developer</h1>
+        <p class="sub-hero akcent">From a business question to a warehouse, a semantic model and <strong>a recommendation with a number on it</strong></p>
+        <p class="lead">BigQuery SQL, Power BI and Python, with the design decisions written down. Based in Erlangen, open to roles across Germany and the EU.</p>
+      </div>
+      <img class="portrait" src="assets/img/portrait@640.webp" srcset="assets/img/portrait@2x.webp 224w, assets/img/portrait@640.webp 640w" sizes="(max-width: 760px) 160px, 320px" width="320" height="320" alt="Ryszard Twardy">
+    </div>
+  </section>
+
+  <section class="container pb-700 about" id="about" aria-labelledby="about-h">
+    <h2 class="h-secondary" id="about-h">About</h2>
+    <p>I build customer and sales analytics that end in a decision: in the case below, where a win-back budget should go. I do the whole chain myself, from the SQL that cleans the data to the Power BI model to the page a manager reads, and I write the design decisions down so the next person can check them.</p>
+    <p>Seventeen years of geospatial analysis and data management came before that, at a national park in Poland where I ended up running the GIS. What carried over: standardise the sources, document the method, report only what can be traced.</p>
+  </section>
+
+  <section class="container pb-900 flow" id="work" aria-labelledby="work-h">
+    <h2 class="h-secondary" id="work-h">Selected work</h2>
+
+    <div class="tiles">
+      <!-- Kupferkanne. Figures from the repo README/methodology; do not edit without re-verifying. -->
+      <a class="tile" href="https://github.com/ryszard-twardy/rfm-customer-segmentation-kupferkanne">
+        <div class="shot">
+          <img src="assets/img/kupferkanne-hero.webp" srcset="assets/img/kupferkanne-hero.webp 1x, assets/img/kupferkanne-hero@2x.webp 2x" width="1437" height="808" alt="Kupferkanne executive summary page of the Power BI report">
+        </div>
+        <div>
+          <h3>Kupferkanne: fifteen thousand customers, one retention budget</h3>
+          <p class="problem">A direct-to-consumer coffee-equipment brand selling in nine European markets has one win-back budget and no evidence on which customers it should go to.</p>
+          <ul class="kwadrat">
+            <li>RFM segmentation over roughly 460K raw records</li>
+            <li>Nine-stage SQL pipeline, 109 DAX measures, what-if reactivation model</li>
+            <li>Architecture decisions on the record</li>
+          </ul>
+          <p class="note">Fictional brand, synthetic data generated with synth-datagen (below). The engineering is real.</p>
+          <p class="stack" translate="no">BigQuery, Power BI (PBIP/TMDL), DAX, Python, Quarto</p>
+          <span class="more">View the repository</span>
+        </div>
+      </a>
+
+      <!-- synth-datagen. Scenario count and CLI sample verified against the repo at d629c84 (v0.3.3), 2026-09-17: README quickstart run with --data-quality medium, stdout verbatim, whole lines dropped only. -->
+      <a class="tile" href="https://ryszard-twardy.github.io/synth-datagen/">
+        <div class="shot"><img src="assets/img/synth-defects.svg" width="1600" height="900" loading="lazy" alt="synth-datagen: built-in data defects, one per column"></div>
+        <div>
+          <h3>synth-datagen: dirty data, on purpose</h3>
+          <p class="problem">Portfolio analytics built on clean sample data never meet the defects a real cleaning layer has to survive, and public datasets cannot be regenerated when the model changes.</p>
+          <ul class="kwadrat">
+            <li>Five business scenarios, multi-table, byte-identical from a seed</li>
+            <li>Duplicate orders, cents-format inconsistency, orphan keys, type drift</li>
+            <li>Feeds the Kupferkanne pipeline: 80 CSV shards, roughly 460K records</li>
+          </ul>
+          <pre class="terminal" translate="no" aria-hidden="true"><span class="prompt">$</span> synth-datagen retail --seed 42 --output ./out/retail \
+    --rows fact_orders=500,fact_order_items=1500,fact_payments=500 \
+    --export-parquet --data-quality medium
+DQ level : medium
+[OK] SQL DDL written -&gt; out\retail\schema.sql
+[OK] Data dictionary -&gt; out\retail\data_dictionary.md
+Done! 30,223 rows in 13.9s -&gt; out\retail</pre>
+          <p class="stack" translate="no">Python 3.11–3.13, Typer, Pydantic, CLI, uv</p>
+          <span class="more">Documentation and source</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="black-bg pb-700" aria-labelledby="how-h">
+    <div class="container">
+      <h2 class="h-secondary" id="how-h">How I work</h2>
+      <div class="grid-three">
+        <p><strong>Business problem first.</strong> Every report starts from a decision someone has to make, not from a dataset. Titles state the finding; the recommendation carries a number and a cost.</p>
+        <p><strong>Built to be checked.</strong> Star schema in the warehouse, semantic model under version control as PBIP/TMDL, SQL linted, design decisions logged. The code matches the claim.</p>
+        <p><strong>AI tools, my judgement.</strong> I use AI-assisted tooling for code and drafts. The design, the tests and the responsibility for what ships are mine, and both repositories are public so that can be checked.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-kontakt pb-700" id="contact" aria-labelledby="contact-h">
+    <div class="container">
+      <h2 class="h-secondary" id="contact-h"><a href="https://www.linkedin.com/in/ryszard-twardy/">Get in touch &rarr;</a></h2>
+      <p class="small"><strong>Open to Data Analyst, BI Developer and Analytics Engineer roles</strong> in Germany and across the EU, on-site around Nuremberg or remote, and to short, well-scoped data projects.</p>
+      <ul class="contact-links">
+        <li><a href="https://www.linkedin.com/in/ryszard-twardy/"><img src="assets/icons/linkedin.png" srcset="assets/icons/linkedin.png 1x, assets/icons/linkedin@2x.png 2x" width="14" height="13" alt="">LinkedIn</a></li>
+        <li><a href="https://github.com/ryszard-twardy"><img src="assets/icons/github.svg" width="14" height="14" alt="">GitHub</a></li>
+        <li><a href="mailto:r.twardy@proton.me"><img src="assets/icons/mail.svg" width="14" height="14" alt="">Email</a></li>
+        <li class="loc">Erlangen, Germany.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container wrap">
+    <div class="social" aria-label="Profiles">
+      <a href="https://github.com/ryszard-twardy" aria-label="GitHub"><img src="assets/icons/github.svg" alt=""></a>
+      <a href="https://www.linkedin.com/in/ryszard-twardy/" aria-label="LinkedIn"><img src="assets/icons/linkedin@2x.png" alt=""></a>
+    </div>
+    <p class="copyright">No cookies, no tracking. &copy; Ryszard Twardy. <a href="datenschutz/">Privacy</a></p>
+  </div>
+</footer>
+</body>
+</html>

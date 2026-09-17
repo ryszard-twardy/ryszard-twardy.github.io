@@ -1,0 +1,10 @@
+Self-hosted fonts - assets/fonts/ (no CDN, DSGVO). All files unmodified. Licences: SIL Open Font License 1.1.
+
+Montserrat 300 / 700 / 900 (headings, wordmark): montserrat-latin-300-normal.woff2, montserrat-latin-700-normal.woff2, montserrat-latin-900-normal.woff2
+   @fontsource/montserrat 5.3.0 (npm pack 2026-09-04), latin subset. Copyright 2011 The Montserrat Project Authors. See LICENSE-Montserrat.txt.
+Lato 400 / 700 (body): lato-latin-400-normal.woff2, lato-latin-700-normal.woff2
+   @fontsource/lato 5.3.0 (npm pack 2026-09-04), latin subset. Copyright (c) 2010-2011 by tyPoland Lukasz Dziedzic with Reserved Font Name "Lato". See LICENSE-Lato.txt.
+IBM Plex Mono 400 (stack lines on the landing): IBMPlexMono-Regular.woff2
+   IBM/plex release @ibm/plex-mono@2.5.0 (2026-09-03). Copyright 2017 IBM Corp. with Reserved Font Name "Plex". See LICENSE.txt.
+
+Loading: @font-face in tokens.css with font-display: optional; each page preloads every face it uses.
