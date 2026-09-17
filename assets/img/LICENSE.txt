@@ -18,3 +18,10 @@ synth-defects.svg (viewBox 1600x900)
    Illustrative table rendering of synth-datagen's built-in defect classes (rows are made up, the defect classes are real),
    authored for this site on 2026-09-04. Text set in the page's own self-hosted fonts via CSS; no embedded fonts. Added 2026-09-16.
    (c) Ryszard Twardy, all rights reserved.
+
+og.png (1200x630)
+   Open Graph card for link previews: the site's own wordmark, the hero subtitle line and the site address, set from the
+   site's tokens (tokens.css) in the self-hosted fonts Montserrat 300/900 and IBM Plex Mono 400 (SIL OFL-1.1, see
+   assets/fonts/). Rendered from .scratch/og/og.html (local source) with Playwright Chromium at 1x and optimised with
+   Pillow. Own work, added 2026-09-17.
+   (c) Ryszard Twardy, all rights reserved.
