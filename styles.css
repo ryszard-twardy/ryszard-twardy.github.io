@@ -16,6 +16,8 @@ p:not([class]) { max-width: 80ch; }
 
 .skip { position: absolute; left: -999px; top: 8px; background: var(--paper); padding: 8px 12px; }
 .skip:focus { left: 8px; }
+/* visually hidden, read by assistive tech (clip pattern); used for the new-tab notice on external links */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 /* ---- type ---- */
 .h-primary { font: 900 clamp(2rem, 4vw, 2.6rem)/1.15 var(--ff-head); text-transform: uppercase; letter-spacing: .01em; }
@@ -29,10 +31,10 @@ p:not([class]) { max-width: 80ch; }
   content: ""; display: inline-block; width: .6em; height: .6em; margin-inline: .2em; background: var(--accent); vertical-align: baseline;
 }
 
-/* red square bullets (li.kwadrat) */
+/* square bullets in ink (ul.kwadrat): .45em, centred on the first line ((1.6em - .45em) / 2 = .575em); the accent square stays with headings and the hero subtitle */
 ul.kwadrat { list-style: none; line-height: 1.6; }
 ul.kwadrat li { position: relative; padding-left: 20px; padding-bottom: .5em; }
-ul.kwadrat li::before { content: ""; position: absolute; left: 0; top: .55em; width: 8px; height: 8px; background: var(--accent); }
+ul.kwadrat li::before { content: ""; position: absolute; left: 0; top: .575em; width: .45em; height: .45em; background: var(--ink); }
 
 /* ---- header ---- */
 .header { border-bottom: 1px solid var(--neutral-grey); }
@@ -63,7 +65,7 @@ ul.kwadrat li::before { content: ""; position: absolute; left: 0; top: .55em; wi
 /* ---- work tiles (oferta-ikony language) ---- */
 .tiles { display: grid; gap: 1.6rem; }
 .tile { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2rem; background: var(--neutral); padding: 2rem; text-decoration: none; color: var(--ink); border-left: 4px solid transparent; transition: border-color .15s, box-shadow .2s; }
-.tile:hover, .tile:focus-visible { border-left-color: var(--accent); box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+.tile:hover, .tile:focus-visible, .tile:has(:focus-visible) { border-left-color: var(--accent); box-shadow: 0 8px 20px rgba(0,0,0,.12); }
 .tile .shot { aspect-ratio: 16 / 9; background: var(--paper); border: 1px solid var(--neutral-grey); overflow: hidden; }
 .tile .shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .tile h3 { font: 900 1.35rem/1.25 var(--ff-head); text-transform: uppercase; }
@@ -103,8 +105,8 @@ footer .social a { display: inline-flex; width: 36px; height: 36px; align-items:
 footer .social img { width: 18px; height: 18px; filter: invert(1); }
 footer .copyright { width: 100%; font-size: .85rem; color: var(--neutral-grey); border-top: 1px solid rgba(241,239,233,.2); padding-top: 1rem; }
 
-/* ---- sub-pages (about, privacy): single column ---- */
-.single { max-width: 44rem; }
+/* ---- sub-pages (about, privacy): one column on the container's left axis, every block capped at a reading measure for long-form pages (70ch); the axis is shared with the landing, the width is not. article. keeps the rule above p:not([class]) in specificity ---- */
+article.single > * { max-width: 70ch; }
 .single h1 { margin-bottom: 1.2rem; }
 .single h2 { font: 700 1.5rem/1.3 var(--ff-head); margin-top: 2.5rem; margin-bottom: .8rem; }
 .single p + p { margin-top: 1rem; }
@@ -125,7 +127,7 @@ footer .copyright { width: 100%; font-size: .85rem; color: var(--neutral-grey); 
 .h-primary { text-wrap: balance; }
 .sub-hero, .lead, .tile .problem, .single p { text-wrap: pretty; }
 .h-secondary, .single h1 { letter-spacing: -.01em; }
-.h-secondary::before, .single h1::before { content: ""; display: inline-block; width: .4em; height: .4em; background: var(--accent); margin-right: .5em; vertical-align: .15em; }
+.h-secondary::before, .single h1::before, .single h2::before { content: ""; display: inline-block; width: .4em; height: .4em; background: var(--accent); margin-right: .5em; vertical-align: .15em; }
 /* T2 hero */
 .hero .wrap { padding-block: 5rem 3rem; }
 /* T3 work */
@@ -156,7 +158,15 @@ footer .wrap { padding-block: 2.5rem 1.5rem; }
   .hero.title-band .portrait { width: 120px; }
 }
 
-/* ---- terminal sample in the synth-datagen tile (sd.terminal): the .shot.terminal grammar, in the text column ---- */
+/* ---- terminal sample in the synth-datagen tile (sd.terminal): pre.terminal, styled by .tile .terminal, in the text column ---- */
 .tile .terminal { margin-top: 1rem; background: var(--ink); color: var(--neutral); padding: .9rem 1.1rem; font: .8rem/1.6 var(--ff-mono); white-space: pre-wrap; overflow-wrap: break-word; }
 .tile .terminal .prompt { color: var(--accent); }
 .tile > div { min-width: 0; } /* grid items stop inheriting the terminal sample's min-content width; break-word then wraps the one long token */
+
+/* ---- synth-datagen tile: two destinations, so an article instead of a block link; the CTA link is stretched over the tile, the source link sits above the stretch ---- */
+article.tile { position: relative; }
+article.tile .more::after { content: ""; position: absolute; inset: 0; }
+article.tile .more:focus-visible { outline: none; }
+article.tile:has(.more:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
+.tile .source { margin-top: .4rem; font-size: 1.02rem; }
+.tile .source a { position: relative; z-index: 1; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
