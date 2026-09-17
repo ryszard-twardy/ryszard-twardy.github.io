@@ -75,14 +75,14 @@ ul.kwadrat li::before { content: ""; position: absolute; left: 0; top: .575em; w
 .tile .stack { margin-top: .8rem; font: .85rem/1.5 var(--ff-mono); color: var(--muted); }
 .tile .more { margin-top: 1.2rem; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 
-/* ---- dark band (black-bg) ---- */
-.black-bg { background: var(--ink); color: var(--neutral); }
+/* ---- dark band (black-bg): 4rem of air, one third more than pb-700; a literal, not a token, so a cached tokens.css can never zero it ---- */
+.black-bg { background: var(--ink); color: var(--neutral); padding-block: 4rem; }
 .black-bg .h-secondary { color: #fff; }
 .black-bg .grid-three { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1.5rem; font-size: 1.05rem; }
 @media (min-width: 1024px) { .black-bg .grid-three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 3rem; } }
 
-/* ---- CTA block (cta-kontakt) ---- */
-.cta-kontakt { background: var(--neutral-grey); }
+/* ---- CTA block (cta-kontakt): same 4rem of air as the dark band ---- */
+.cta-kontakt { background: var(--neutral-grey); padding-block: 4rem; }
 .cta-kontakt .h-secondary a { text-decoration: none; }
 .cta-kontakt .h-secondary a:hover { color: var(--accent); }
 .cta-kontakt p.small { margin-top: .4rem; font-weight: 700; }
