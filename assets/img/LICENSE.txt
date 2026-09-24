@@ -25,3 +25,9 @@ og.png (1200x630)
    assets/fonts/). Rendered from .scratch/og/og.html (local source) with Playwright Chromium at 1x and optimised with
    Pillow. Own work, added 2026-09-17.
    (c) Ryszard Twardy, all rights reserved.
+
+kupferkanne-report-og-v1.png (1200x630)
+   Open Graph card for the short report link kupferkanne/report/: kupferkanne-hero@2x.webp scaled down proportionally
+   with Pillow (LANCZOS) to 1120x630, uncropped, centred on a 1200x630 canvas in the site's --neutral (#F1EFE9, tokens.css)
+   and saved as an optimised PNG. Rendered from .scratch/og/kupferkanne-report-og.py (local source). Added 2026-09-24.
+   (c) Ryszard Twardy, all rights reserved.
