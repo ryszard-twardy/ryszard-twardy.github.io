@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kupferkanne win-back: most of the per-euro gap comes from rates</title>
+<meta name="description" content="Most of the Kupferkanne win-back gap comes from the playbook's rates rather than from the segments. BigQuery, Power BI, 105 DAX measures. Synthetic data.">
+<link rel="canonical" href="https://ryszard-twardy.github.io/kupferkanne/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ryszard Twardy">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Kupferkanne win-back: most of the per-euro gap comes from rates">
+<meta property="og:description" content="Most of the Kupferkanne win-back gap comes from the playbook's rates rather than from the segments. BigQuery, Power BI, 105 DAX measures. Synthetic data.">
+<meta property="og:url" content="https://ryszard-twardy.github.io/kupferkanne/">
+<meta property="og:image" content="https://ryszard-twardy.github.io/assets/img/kupferkanne-og-v1.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kupferkanne win-back finding: contribution per 1,000 EUR of discount, At Risk against Hibernating">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" href="../assets/fonts/montserrat-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/montserrat-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/lato-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/lato-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="container wrap">
+    <a class="wordmark" href="../" aria-label="Ryszard Twardy – home"><svg viewBox="0 0 107 41" width="107" height="41" aria-hidden="true" focusable="false"><text x="0" y="15.8" font-family="Montserrat" font-weight="300" font-size="22" fill="currentColor">RYSZARD</text><text x="0" y="40" textLength="106.2" lengthAdjust="spacing" font-family="Montserrat" font-weight="900" font-size="22" fill="currentColor">TWARDY</text></svg></a>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        <li><a href="../#work">Work</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Figures from the rfm-customer-segmentation-kupferkanne docs at e311b57; do not edit a number without re-verifying it. -->
+  <section class="hero kk-hero" aria-labelledby="kk-h1">
+    <div class="container kk-hero-wrap">
+      <h1 class="h-case" id="kk-h1">Per discount euro, most of the <span class="nowrap">win-back</span> gap comes from the playbook's rates</h1>
+      <p class="sub-hero akcent">RFM segmentation and a <span class="nowrap">win-back</span> discount pilot design for Kupferkanne</p>
+      <div class="kk-hero-row">
+      <div class="kk-hero-text">
+        <ul class="kk-kpis" aria-label="Scale of the analysis">
+          <li><span class="kk-kpi-value">168,777</span> <span class="kk-kpi-label">orders</span></li>
+          <li><span class="kk-kpi-value">8.48M EUR</span> <span class="kk-kpi-label">revenue</span></li>
+          <li><span class="kk-kpi-value">9</span> <span class="kk-kpi-label">European markets</span></li>
+          <li><span class="kk-kpi-value">14,967</span> <span class="kk-kpi-label">customers scored</span></li>
+        </ul>
+        <p class="kk-note">Fictional brand, synthetic data with seeded defects, January 2023 to March 2026.</p>
+        <ul class="kk-ctas">
+          <li><a class="kk-btn" href="https://ryszard-twardy.github.io/kupferkanne/report/" target="_blank" rel="noopener">Live Power BI report<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a class="kk-link" href="https://ryszard-twardy.github.io/rfm-customer-segmentation-kupferkanne/" target="_blank" rel="noopener">EDA notebook<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a class="kk-link" href="https://github.com/ryszard-twardy/rfm-customer-segmentation-kupferkanne" target="_blank" rel="noopener">Source on GitHub<span class="sr-only"> (opens in a new tab)</span></a></li>
+        </ul>
+      </div>
+      <img class="kk-hero-shot" src="../assets/img/kupferkanne-hero-v2.webp" srcset="../assets/img/kupferkanne-hero-v2.webp 1x, ../assets/img/kupferkanne-hero-v2@2x.webp 2x" width="1437" height="808" fetchpriority="high" alt="Executive Summary page of the Kupferkanne Power BI report: revenue 8.48M EUR, profit 5.04M EUR, 59.52% margin, customers by segment, weekly revenue trend and revenue by segment">
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-700 kk-finding" id="finding" aria-labelledby="finding-h">
+    <h2 class="h-secondary" id="finding-h">With either rate applied to both segments, At Risk retains about 1.2 times as much per discount euro</h2>
+    <p class="kk-lead">The win-back playbook grants its deepest discount to its thinnest margin: 15% off for At Risk, 20% for Hibernating. In contribution per euro of discount, most of the gap between them comes from the playbook's rates rather than from the segments.</p>
+    <figure class="kk-exhibit">
+      <div class="kk-shot">
+        <img src="../assets/img/kupferkanne-e3-contribution.svg" width="1200" height="675" alt="At the playbook's rates, each 1,000 EUR of discount retains 2,465 EUR of contribution in At Risk, against 1,335 EUR in Hibernating" aria-describedby="e3-desc">
+        <p id="e3-desc" class="sr-only">Horizontal bar chart of contribution per 1,000 EUR of discount at the playbook's rates (15% for At Risk, 20% for Hibernating): At Risk 2,465 EUR, Hibernating 1,335 EUR, a gap of 1,130 EUR. At these rates At Risk retains 1.85 times as much contribution per euro of discount as Hibernating; with either rate applied to both segments, about 1.2 times as much. The figure measures margin efficiency, not incremental return.</p>
+      </div>
+      <figcaption>Contribution per 1,000 EUR of discount = (gross margin - discount rate) / discount rate x 1,000 EUR, on orders placed; derivation in <a href="https://github.com/ryszard-twardy/rfm-customer-segmentation-kupferkanne/blob/main/docs/methodology.md#win-back-discount-allocation" target="_blank" rel="noopener">docs/methodology.md<span class="sr-only"> (opens in a new tab)</span></a>.</figcaption>
+    </figure>
+    <table class="kk-rates">
+      <caption>Contribution per euro of discount at each rate; the playbook's pairing is marked</caption>
+      <thead>
+        <tr><th scope="col">Segment (gross margin)</th><th scope="col">15% discount</th><th scope="col">20% discount</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">At Risk (51.97%)</th><td>2.46 <span class="kk-mark">playbook</span></td><td>1.60</td></tr>
+        <tr><th scope="row">Hibernating (46.69%)</th><td>2.11</td><td>1.33 <span class="kk-mark">playbook</span></td></tr>
+      </tbody>
+    </table>
+    <ul class="kwadrat kk-points">
+      <li><strong>At the playbook's rates.</strong> At Risk retains 36.97 points of contribution after a 15-point discount; Hibernating retains 26.69 after 20. Each 1,000 EUR of discount retains an expected 2,465 EUR in At Risk against 1,335 EUR in Hibernating: 1.85 times as much.</li>
+      <li><strong>At one common rate.</strong> With either rate applied to both segments, At Risk retains about 1.2 times as much; swap the rates and the ranking reverses.</li>
+      <li><strong>In scale.</strong> The two segments hold 3,909 of 14,967 scored customers (26.1%) but 170.81K EUR of lifetime spend, 2.0% of the revenue base: a broad, shallow pool.</li>
+    </ul>
+    <h3 class="kk-h3" id="pilot-h">The recommended pilot tests Hibernating's rate first, then a break-even floor and contact priority</h3>
+    <p>These figures measure margin on orders placed, not incrementality: an At Risk customer may have ordered without the offer, so the incremental ranking can narrow or reverse. The pilot randomises each segment into offer and holdout groups and tests Hibernating at 20% and 15%; on the same data it then tests a break-even floor per offer and, if the budget cannot cover everyone, whether At Risk goes first until its pool is exhausted. Each decision keeps the current playbook unless a 95% interval clears its threshold. The pilot has not run: the repository holds no campaign response history.</p>
+    <p class="kk-note">The data is synthetic: margin and discount gradients are properties of the generator, so the figures show the method, not a market.</p>
+  </section>
+
+  <section class="kk-band" aria-labelledby="built-h">
+    <div class="container">
+      <h2 class="h-secondary" id="built-h">Ten SQL steps in BigQuery feed a 105-measure Power BI model</h2>
+      <ol class="kk-pipeline">
+        <li>
+          <p class="kk-node">BigQuery warehouse</p>
+          <p>Ten SQL steps: audit, clean, explore, score, build marts, assert coverage</p>
+          <ul class="kwadrat">
+            <li>80 CSV shards, about 462K raw records in</li>
+            <li>11 tables and 22 views out</li>
+          </ul>
+        </li>
+        <li>
+          <p class="kk-node">Semantic model</p>
+          <p>PBIP/TMDL, Import mode, under version control</p>
+          <ul class="kwadrat">
+            <li>12 tables, 7 single-direction relationships</li>
+            <li>105 DAX measures</li>
+          </ul>
+        </li>
+        <li>
+          <p class="kk-node">Power BI report</p>
+          <p>Six report pages plus a customer drillthrough</p>
+          <ul class="kwadrat">
+            <li>Power BI service, no sign-in</li>
+          </ul>
+        </li>
+      </ol>
+      <p class="kk-after">A KPI harness re-asserts revenue (8,476,200.74 EUR) and customers (14,967) after pipeline changes; 29 data-quality checks run before cleaning and another 29 after.</p>
+    </div>
+  </section>
+
+  <section class="container pb-700 kk-how" aria-labelledby="how-h">
+    <h2 class="h-secondary" id="how-h">Three modelling choices keep the segments and margins checkable</h2>
+    <div class="kk-three">
+      <div>
+        <h3 class="kk-h3">Customers are scored by quintiles, not clusters</h3>
+        <p>Recency, frequency and monetary value are each scored 1–5 with NTILE(5); the sum (3–15) maps to six segments. Recency is anchored to the last order date, so results reproduce on a frozen dataset. The recorded trade-off: a sum hides which score drives it.</p>
+        <p class="kk-adr"><a href="https://github.com/ryszard-twardy/rfm-customer-segmentation-kupferkanne/blob/main/docs/adr/0006-rfm-segmentation-with-ntile.md" target="_blank" rel="noopener">ADR 0006: RFM segmentation with NTILE(5)<span class="sr-only"> (opens in a new tab)</span></a></p>
+      </div>
+      <div>
+        <h3 class="kk-h3">Orders and order lines sit in separate facts that must agree</h3>
+        <p>Order-grain <code>sales_curated</code> (168,777 rows) carries revenue and segmentation; line-grain <code>v_items_for_bi</code> (about 273K rows) carries product detail. Measure names carry the grain, and a reconciliation measure asserts the grains agree (expected 0).</p>
+        <p class="kk-adr"><a href="https://github.com/ryszard-twardy/rfm-customer-segmentation-kupferkanne/blob/main/docs/adr/0005-dual-grain-fact-model.md" target="_blank" rel="noopener">ADR 0005: dual-grain fact model<span class="sr-only"> (opens in a new tab)</span></a></p>
+      </div>
+      <div>
+        <h3 class="kk-h3">Margin is weighted by revenue at every level</h3>
+        <p>Margin is total profit over total revenue (59.52%), never an average of per-order margins, which over-weights small orders. The equal-weight brand margin (59.63%) is kept as a labelled benchmark, so a mix shift cannot hide behind one number.</p>
+        <p class="kk-adr"><a href="https://github.com/ryszard-twardy/rfm-customer-segmentation-kupferkanne/blob/main/docs/adr/0007-two-tier-margin-calculation.md" target="_blank" rel="noopener">ADR 0007: two-tier margin calculation<span class="sr-only"> (opens in a new tab)</span></a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="kk-band" aria-labelledby="gallery-h">
+    <div class="container">
+      <h2 class="h-secondary" id="gallery-h">Three report pages show the playbook, the pool at risk and the margin behind them</h2>
+      <div class="kk-gallery">
+        <figure class="kk-fig">
+          <img src="../assets/img/kupferkanne-segments.webp" srcset="../assets/img/kupferkanne-segments.webp 1x, ../assets/img/kupferkanne-segments@2x.webp 2x" width="1437" height="808" loading="lazy" alt="Segment Deep Dive page: each segment's share of customers and of revenue (Champions: 21% and 70%), segment profile table, frequency against monetary value by segment, recommended strategy table with win-back 15% for At Risk and 20% for Hibernating, and revenue by RFM score">
+          <figcaption><strong>Segment Deep Dive.</strong> The strategy table holds the playbook under test: win-back 15% for At Risk, 20% for Hibernating.</figcaption>
+        </figure>
+        <figure class="kk-fig">
+          <img src="../assets/img/kupferkanne-churn.webp" srcset="../assets/img/kupferkanne-churn.webp 1x, ../assets/img/kupferkanne-churn@2x.webp 2x" width="1437" height="808" loading="lazy" alt="Churn Risk &amp; What-If page: 170.81K EUR revenue at risk across 3,909 customers, the reactivation rate at 10% with the gross win-back scenario, revenue by recency stage, a risk table with the win-back offer per segment, and at-risk customers by value and recency">
+          <figcaption><strong>Churn Risk &amp; What-If.</strong> The pool the pilot draws from: 3,909 At Risk and Hibernating customers; the reactivation slider (default 10%) prices a scenario, not a forecast.</figcaption>
+        </figure>
+        <figure class="kk-fig">
+          <img src="../assets/img/kupferkanne-product.webp" srcset="../assets/img/kupferkanne-product.webp 1x, ../assets/img/kupferkanne-product@2x.webp 2x" width="1437" height="808" loading="lazy" alt="Product &amp; Brand page: revenue 8.48M EUR, 59.52% profit margin, profitability by category, brand and product, revenue by brand with each brand's margin and the blended margin in the tooltip, top products and revenue trend by category">
+          <figcaption><strong>Product &amp; Brand.</strong> Each brand's margin is read against the revenue-weighted blended margin of 59.52%, not an average of averages.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-700 kk-artifacts" aria-labelledby="art-h">
+    <h2 class="h-secondary" id="art-h">Every figure on this page traces to a public source file</h2>
+    <ul class="kk-cards">
+      <li class="kk-card">
+        <h3>Live report</h3>
+        <p>In the Power BI service, no sign-in.</p>
+        <a href="https://ryszard-twardy.github.io/kupferkanne/report/" target="_blank" rel="noopener">Open the live report<span class="sr-only"> (opens in a new tab)</span></a>
+      </li>
+      <li class="kk-card">
+        <h3>EDA notebook</h3>
+        <p>The distributions behind the quintile thresholds, from eight exploratory views that run before any scoring.</p>
+        <a href="https://ryszard-twardy.github.io/rfm-customer-segmentation-kupferkanne/" target="_blank" rel="noopener">Read the notebook<span class="sr-only"> (opens in a new tab)</span></a>
+      </li>
+      <li class="kk-card">
+        <h3><span class="nowrap">Win-back</span> exhibits</h3>
+        <p>Three exhibits with their data tables; the render stops if a figure drifts from the methodology.</p>
+        <a href="https://ryszard-twardy.github.io/rfm-customer-segmentation-kupferkanne/exhibits_win_back.html" target="_blank" rel="noopener">See the exhibits<span class="sr-only"> (opens in a new tab)</span></a>
+      </li>
+      <li class="kk-card">
+        <h3>Source on GitHub</h3>
+        <p>SQL pipeline, PBIP/TMDL model, KPI harness and fifteen architecture decision records; MIT licence.</p>
+        <a href="https://github.com/ryszard-twardy/rfm-customer-segmentation-kupferkanne" target="_blank" rel="noopener">Open the repository<span class="sr-only"> (opens in a new tab)</span></a>
+      </li>
+    </ul>
+  </section>
+
+  <div class="container kk-close">
+    <p><a href="../#work">&larr; Back to all work</a></p>
+    <p class="kk-stack" translate="no">BigQuery (GoogleSQL), Power BI (PBIP/TMDL, DAX), Python, Quarto</p>
+    <p class="kk-stack">Built end to end by Ryszard Twardy; AI-assisted tooling is disclosed in the repository.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="container wrap">
+    <div class="social" aria-label="Profiles">
+      <a href="https://github.com/ryszard-twardy" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><img src="../assets/icons/github.svg" alt=""></a>
+      <a href="https://www.linkedin.com/in/ryszard-twardy/" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><img src="../assets/icons/linkedin@2x.png" alt=""></a>
+    </div>
+    <p class="copyright">No cookies, no tracking. &copy; Ryszard Twardy. <a href="../datenschutz/">Privacy</a></p>
+  </div>
+</footer>
+</body>
+</html>

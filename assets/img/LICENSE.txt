@@ -32,3 +32,20 @@ kupferkanne-report-og-v2.png (1200x630)
    with Pillow (LANCZOS) to 1120x630, uncropped, centred on a 1200x630 canvas in the site's --neutral (#F1EFE9, tokens.css)
    and saved as an optimised PNG. Rendered from .scratch/og/kupferkanne-report-og-v2.py (local source). Added 2026-10-15.
    (c) Ryszard Twardy, all rights reserved.
+
+kupferkanne-segments.webp, kupferkanne-churn.webp, kupferkanne-product.webp (720x405) and their @2x files (1437x808)
+   Screenshots of the Segment Deep Dive, Churn Risk & What-If and Product & Brand pages of the site owner's Kupferkanne
+   Power BI report (fictional brand, synthetic data), captured from the live publish-to-web report with headless Edge at
+   1920x1080 and downscaled once with Pillow (LANCZOS, WebP quality 86). Added 2026-10-15.
+   (c) Ryszard Twardy, all rights reserved.
+
+kupferkanne-og-v1.png (1200x630)
+   Open Graph card for the project page kupferkanne/: the titled contribution exhibit from the site owner's Kupferkanne
+   repository (docs/img/exhibits/e3_contribution_per_1000_titled.png), placed on white, scaled down proportionally with
+   Pillow (LANCZOS) to 1120x630, uncropped, centred on a 1200x630 canvas and saved as a PNG. Added 2026-10-15.
+   (c) Ryszard Twardy, all rights reserved.
+
+kupferkanne-e3-contribution.svg (viewBox 1200x675)
+   Contribution per 1,000 EUR of discount exhibit, copied byte for byte from the site owner's MIT-licensed Kupferkanne
+   repository (docs/img/exhibits/e3_contribution_per_1000.svg at v1.3.0); labels are glyph paths, no embedded fonts.
+   Added 2026-10-15. (c) Ryszard Twardy, MIT licence of the source repository.

@@ -1,0 +1,106 @@
+/* ---- project.css: Kupferkanne project page (kupferkanne/); loads after tokens.css and styles.css; tokens only, no colour literals ---- */
+
+/* header and footer are the landing's, unchanged (its --chrome check compares them across pages) */
+
+/* keeps "win-back" from breaking at its hyphen in the h1, the subtitle and headings */
+.nowrap { white-space: nowrap; }
+
+/* ---- hero (SPEC B1): the h1 carries the answer; subtitle, KPI strip, CTAs, report screenshot ---- */
+.kk-hero-wrap { padding-block: 2.5rem 2.75rem; }
+/* SPEC B3: case-study title, sentence case */
+.h-case { font: 900 clamp(1.6rem, 3vw, 2.2rem)/1.2 var(--ff-head); text-wrap: balance; }
+.hero .h-case { color: var(--paper); }
+.kk-hero .sub-hero { max-width: none; }
+.kk-hero-row { display: grid; gap: 2rem 2.5rem; margin-top: 1.8rem; align-items: center; }
+@media (min-width: 900px) { .kk-hero-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+
+.kk-kpis { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, max-content)); gap: 1.1rem 2.4rem; }
+.kk-kpis li { border-left: 2px solid var(--accent); padding-left: .75rem; }
+.kk-kpi-value { display: block; font: 700 1.5rem/1.2 var(--ff-head); color: var(--paper); }
+.kk-kpi-label { display: block; font-size: .9rem; color: var(--neutral-grey); }
+.kk-hero .kk-note { margin-top: 1rem; font-size: .85rem; color: var(--neutral-grey); }
+
+.kk-ctas { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: .9rem 1.6rem; margin-top: 1.4rem; }
+/* white on --accent-deep is 5.1:1 (AA); white on --accent would be 4.1:1 */
+.kk-btn { display: inline-block; padding: .7rem 1.15rem; background: var(--accent-deep); color: var(--paper); font-weight: 700; text-decoration: none; }
+.kk-btn:hover { text-decoration: underline; text-underline-offset: 3px; }
+.kk-link { color: var(--neutral); font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.kk-link:hover { color: var(--paper); }
+.kk-hero :focus-visible { outline-color: var(--paper); }
+.kk-hero-shot { width: 100%; border: 1px solid var(--muted); }
+
+/* ---- finding ---- */
+.kk-lead { margin-top: 1rem; max-width: 80ch; }
+.kk-exhibit { margin-top: 1.5rem; }
+/* SPEC B5: exhibit in a 16/9 frame as .tile .shot, on --paper, no accent (B7); the chart text takes the body face */
+.kk-shot { aspect-ratio: 16 / 9; background: var(--paper); border: 1px solid var(--neutral-grey); overflow: hidden; }
+.kk-shot svg { display: block; width: 100%; height: 100%; }
+.kk-shot svg text { font-family: var(--ff-body); }
+.kk-shot svg * { stroke-linejoin: round; stroke-linecap: butt; } /* the exhibit's own style block, scoped here instead of page-wide */
+/* SPEC B6: the one figcaption rule */
+figcaption { margin-top: .6rem; color: var(--muted); font-size: .9rem; }
+/* the canon rate table (docs/methodology.md:110-113): the H1's evidence, legible at any width */
+.kk-rates { width: 100%; max-width: 38rem; margin-top: 1.6rem; border-collapse: collapse; }
+.kk-rates caption { caption-side: top; text-align: left; font-weight: 700; padding-bottom: .5rem; }
+.kk-rates th, .kk-rates td { padding: .45rem 1rem .45rem 0; border-bottom: 1px solid var(--neutral-grey); text-align: left; vertical-align: top; }
+.kk-rates thead th { font-size: .9rem; color: var(--muted); }
+.kk-rates tbody th { font-weight: 400; }
+.kk-rates td { font-variant-numeric: tabular-nums; }
+.kk-mark { margin-left: .3rem; font-size: .8rem; color: var(--muted); }
+.kk-points { display: grid; gap: .6rem 2.5rem; margin-top: 1.8rem; }
+@media (min-width: 1024px) { .kk-points { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.kk-h3 { font: 700 1.3rem/1.3 var(--ff-head); }
+.kk-finding .kk-h3 { margin-top: 2.2rem; }
+.kk-finding .kk-h3 + p { margin-top: .8rem; }
+.kk-finding .kk-note { margin-top: 1rem; max-width: 80ch; font-size: .9rem; color: var(--muted); }
+
+/* ---- pipeline band ---- */
+.kk-band { background: var(--neutral); padding-block: var(--s-700); }
+.kk-pipeline { list-style: none; display: grid; gap: 2.6rem; margin-top: 1.6rem; }
+.kk-pipeline > li { position: relative; background: var(--paper); border-top: 4px solid var(--ink); padding: 1.2rem 1.4rem 1rem; }
+/* chevron between nodes: down when stacked, right in a row */
+.kk-pipeline > li:not(:last-child)::after { content: ""; position: absolute; left: 50%; bottom: -1.85rem; width: .8rem; height: .8rem; border-right: 3px solid var(--accent); border-bottom: 3px solid var(--accent); transform: translateX(-50%) rotate(45deg); }
+@media (min-width: 900px) {
+  .kk-pipeline { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3rem; }
+  .kk-pipeline > li:not(:last-child)::after { left: auto; right: -2.05rem; bottom: auto; top: 50%; transform: translateY(-50%) rotate(-45deg); }
+}
+.kk-node { font: 700 1.15rem/1.3 var(--ff-head); }
+.kk-pipeline p + p { margin-top: .4rem; }
+.kk-pipeline .kwadrat { margin-top: .8rem; font-size: 1rem; }
+.kk-after { margin-top: 1.6rem; max-width: 80ch; }
+
+/* ---- how ---- */
+.kk-three { display: grid; gap: 2rem; margin-top: 1.6rem; }
+@media (min-width: 1024px) { .kk-three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 3rem; } }
+.kk-three .kk-h3 + p { margin-top: .6rem; }
+.kk-adr { margin-top: .8rem; }
+.kk-adr a, .kk-card a { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+
+/* ---- gallery: one page per row, screenshot left, caption right ---- */
+.kk-gallery { display: grid; gap: 2.2rem; margin-top: 1.6rem; }
+.kk-fig { display: grid; gap: 0 2.2rem; align-items: center; }
+@media (min-width: 900px) { .kk-fig { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); } }
+.kk-fig img { width: 100%; background: var(--paper); border: 1px solid var(--neutral-grey); }
+
+/* ---- artifact cards (tile language; the link is stretched over the card) ---- */
+.kk-cards { list-style: none; display: grid; gap: 1.2rem; margin-top: 1.6rem; }
+@media (min-width: 760px) { .kk-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .kk-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.kk-card { position: relative; display: flex; flex-direction: column; background: var(--neutral); padding: 1.4rem 1.3rem; border-left: 4px solid transparent; }
+.kk-card:hover, .kk-card:has(a:focus-visible) { border-left-color: var(--accent); }
+.kk-card h3 { font: 900 1.05rem/1.25 var(--ff-head); text-transform: uppercase; }
+.kk-card p { margin-top: .6rem; font-size: 1rem; color: var(--muted); }
+.kk-card a { margin-top: auto; padding-top: .9rem; }
+.kk-card a::after { content: ""; position: absolute; inset: 0; }
+.kk-card a:focus-visible { outline: none; }
+.kk-card:has(a:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---- closing strip: back link and stack line, kept out of the shared footer ---- */
+.kk-close { display: grid; gap: .4rem; border-top: 1px solid var(--neutral-grey); padding-block: 1.5rem var(--s-700); }
+.kk-close a { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.kk-stack { font-size: .9rem; color: var(--muted); }
+
+@media (max-width: 760px) {
+  .kk-hero-wrap { padding-block: 2rem 2.2rem; }
+  .kk-mark { display: block; margin-left: 0; }
+}

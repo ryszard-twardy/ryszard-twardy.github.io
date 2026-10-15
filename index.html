@@ -74,13 +74,13 @@
           <h3>Kupferkanne: fifteen thousand customers, one retention budget</h3>
           <p class="problem">A direct-to-consumer coffee-equipment brand selling in nine European markets has one win-back budget and no evidence on which customers it should go to.</p>
           <ul class="kwadrat">
-            <li>RFM segmentation across 168,777 orders, built from roughly 460K raw records</li>
+            <li>RFM segmentation across 168,777 orders, built from roughly 462K raw records</li>
             <li>Ten-step SQL pipeline, 105 DAX measures, what-if reactivation model</li>
             <li>Architecture decisions on the record</li>
           </ul>
           <p class="note">Fictional brand, synthetic data generated with synth-datagen (below). The engineering is real.</p>
           <p class="stack" translate="no">BigQuery, Power BI (PBIP/TMDL), DAX, Python, Quarto</p>
-          <a class="more" href="https://app.powerbi.com/view?r=eyJrIjoiM2JlNGExNDMtN2U0ZS00MmYxLWE4M2ItYzMzZjhkY2ZhZWM0IiwidCI6ImNhYTk3MmQ2LWFhYTctNDE0NS1iMTgyLTA2NzkzZWY5NWVhNiJ9&amp;pageName=46bfe20b629145b40be4" target="_blank" rel="noopener">Open the live report<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="more" href="kupferkanne/">Read the case study</a>
           <p class="source"><a href="https://github.com/ryszard-twardy/rfm-customer-segmentation-kupferkanne" target="_blank" rel="noopener">Source on GitHub<span class="sr-only"> (opens in a new tab)</span></a></p>
         </div>
       </article>
@@ -94,7 +94,7 @@
           <ul class="kwadrat">
             <li>Five business scenarios, multi-table, byte-identical from a seed</li>
             <li>Duplicate orders, cents-format inconsistency, orphan keys, type drift</li>
-            <li>Feeds the Kupferkanne pipeline: 80 CSV shards, roughly 460K records</li>
+            <li>Feeds the Kupferkanne pipeline: 80 CSV shards, roughly 462K records</li>
           </ul>
           <pre class="terminal" translate="no" aria-hidden="true"><span class="prompt">$</span> synth-datagen retail --seed 42 --output ./out/retail \
     --rows fact_orders=500,fact_order_items=1500,fact_payments=500 \
