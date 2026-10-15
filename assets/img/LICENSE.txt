@@ -9,9 +9,10 @@ portrait@640.webp (640x640)
    Same source photograph as portrait.webp, 640 px derivative for the 320 px hero slot at 2x (Pillow, LANCZOS, WebP).
    (c) Ryszard Twardy, all rights reserved.
 
-kupferkanne-hero.webp (720x405), kupferkanne-hero@2x.webp (1437x808)
+kupferkanne-hero-v2.webp (720x405), kupferkanne-hero-v2@2x.webp (1437x808)
    Screenshot of the Executive Summary page of the site owner's Kupferkanne Power BI report (fictional brand,
-   synthetic data), exported by the site owner; converted from the PNG export with Pillow (WebP). Added 2026-09-16.
+   synthetic data), captured from the live publish-to-web report with headless Edge at 1920x1080 and downscaled once
+   with Pillow (LANCZOS, WebP quality 86). Added 2026-10-15.
    (c) Ryszard Twardy, all rights reserved.
 
 synth-defects.svg (viewBox 1600x900)
@@ -26,8 +27,8 @@ og.png (1200x630)
    Pillow. Own work, added 2026-09-17.
    (c) Ryszard Twardy, all rights reserved.
 
-kupferkanne-report-og-v1.png (1200x630)
-   Open Graph card for the short report link kupferkanne/report/: kupferkanne-hero@2x.webp scaled down proportionally
+kupferkanne-report-og-v2.png (1200x630)
+   Open Graph card for the short report link kupferkanne/report/: kupferkanne-hero-v2@2x.webp scaled down proportionally
    with Pillow (LANCZOS) to 1120x630, uncropped, centred on a 1200x630 canvas in the site's --neutral (#F1EFE9, tokens.css)
-   and saved as an optimised PNG. Rendered from .scratch/og/kupferkanne-report-og.py (local source). Added 2026-09-24.
+   and saved as an optimised PNG. Rendered from .scratch/og/kupferkanne-report-og-v2.py (local source). Added 2026-10-15.
    (c) Ryszard Twardy, all rights reserved.
