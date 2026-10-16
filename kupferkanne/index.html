@@ -74,8 +74,11 @@
     <p class="kk-lead">The win-back playbook grants its deepest discount to its thinnest margin: 15% off for At Risk, 20% for Hibernating. In contribution per euro of discount, most of the gap between them comes from the playbook's rates rather than from the segments.</p>
     <figure class="kk-exhibit">
       <div class="kk-shot">
-        <img src="../assets/img/kupferkanne-e3-contribution.svg" width="1200" height="675" alt="At the playbook's rates, each 1,000 EUR of discount retains 2,465 EUR of contribution in At Risk, against 1,335 EUR in Hibernating" aria-describedby="e3-desc">
-        <p id="e3-desc" class="sr-only">Horizontal bar chart of contribution per 1,000 EUR of discount at the playbook's rates (15% for At Risk, 20% for Hibernating): At Risk 2,465 EUR, Hibernating 1,335 EUR, a gap of 1,130 EUR. At these rates At Risk retains 1.85 times as much contribution per euro of discount as Hibernating; with either rate applied to both segments, about 1.2 times as much. The figure measures margin efficiency, not incremental return.</p>
+        <picture>
+          <source media="(max-width: 1023.98px)" srcset="../assets/img/kupferkanne-e3-contribution-narrow.svg" width="360" height="400">
+          <img src="../assets/img/kupferkanne-e3-contribution.svg" width="1200" height="675" alt="At the playbook's rates, each 1,000 EUR of discount retains 2,465 EUR of contribution in At Risk, against 1,335 EUR in Hibernating" aria-describedby="e3-desc">
+        </picture>
+        <p id="e3-desc" hidden>Horizontal bar chart of contribution per 1,000 EUR of discount at the playbook's rates (15% for At Risk, 20% for Hibernating): At Risk 2,465 EUR, Hibernating 1,335 EUR, a gap of 1,130 EUR. At these rates At Risk retains 1.85 times as much contribution per euro of discount as Hibernating; with either rate applied to both segments, about 1.2 times as much. The figure measures margin efficiency, not incremental return.</p>
       </div>
       <figcaption>Contribution per 1,000 EUR of discount = (gross margin - discount rate) / discount rate x 1,000 EUR, on orders placed; derivation in <a href="https://github.com/ryszard-twardy/rfm-customer-segmentation-kupferkanne/blob/main/docs/methodology.md#win-back-discount-allocation" target="_blank" rel="noopener">docs/methodology.md<span class="sr-only"> (opens in a new tab)</span></a>.</figcaption>
     </figure>

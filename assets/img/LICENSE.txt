@@ -49,3 +49,8 @@ kupferkanne-e3-contribution.svg (viewBox 1200x675)
    Contribution per 1,000 EUR of discount exhibit, copied byte for byte from the site owner's MIT-licensed Kupferkanne
    repository (docs/img/exhibits/e3_contribution_per_1000.svg at v1.3.0); labels are glyph paths, no embedded fonts.
    Added 2026-10-15. (c) Ryszard Twardy, MIT licence of the source repository.
+
+kupferkanne-e3-contribution-narrow.svg (viewBox 360x400)
+   Small-screen layout of the contribution per 1,000 EUR of discount exhibit, copied byte for byte from the site owner's
+   MIT-licensed Kupferkanne repository (docs/img/exhibits/e3_contribution_per_1000_narrow.svg at v1.3.0); labels are
+   glyph paths, no embedded fonts. Added 2026-10-16. (c) Ryszard Twardy, MIT licence of the source repository.

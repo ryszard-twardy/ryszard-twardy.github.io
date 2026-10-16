@@ -5,9 +5,9 @@
 /* keeps "win-back" from breaking at its hyphen in the h1, the subtitle and headings */
 .nowrap { white-space: nowrap; }
 
-/* ---- hero (SPEC B1): the h1 carries the answer; subtitle, KPI strip, CTAs, report screenshot ---- */
+/* ---- hero: the h1 carries the answer; subtitle, KPI strip, CTAs, report screenshot ---- */
 .kk-hero-wrap { padding-block: 2.5rem 2.75rem; }
-/* SPEC B3: case-study title, sentence case */
+/* case-study title, sentence case */
 .h-case { font: 900 clamp(1.6rem, 3vw, 2.2rem)/1.2 var(--ff-head); text-wrap: balance; }
 .hero .h-case { color: var(--paper); }
 .kk-hero .sub-hero { max-width: none; }
@@ -32,12 +32,14 @@
 /* ---- finding ---- */
 .kk-lead { margin-top: 1rem; max-width: 80ch; }
 .kk-exhibit { margin-top: 1.5rem; }
-/* SPEC B5: exhibit in a 16/9 frame as .tile .shot, on --paper, no accent (B7); the chart text takes the body face */
+/* exhibit in a 16/9 frame like .tile .shot, on --paper, no accent; a 360/400 frame for the narrow chart on small screens */
 .kk-shot { aspect-ratio: 16 / 9; background: var(--paper); border: 1px solid var(--neutral-grey); overflow: hidden; }
-.kk-shot svg { display: block; width: 100%; height: 100%; }
-.kk-shot svg text { font-family: var(--ff-body); }
-.kk-shot svg * { stroke-linejoin: round; stroke-linecap: butt; } /* the exhibit's own style block, scoped here instead of page-wide */
-/* SPEC B6: the one figcaption rule */
+@media (max-width: 1023.98px) {
+  .kk-exhibit { max-width: 30rem; }
+  .kk-shot { aspect-ratio: 360 / 400; max-width: 30rem; border: 0; }
+  .kk-shot img { width: 100%; }
+}
+/* the one figcaption rule */
 figcaption { margin-top: .6rem; color: var(--muted); font-size: .9rem; }
 /* the canon rate table (docs/methodology.md:110-113): the H1's evidence, legible at any width */
 .kk-rates { width: 100%; max-width: 38rem; margin-top: 1.6rem; border-collapse: collapse; }

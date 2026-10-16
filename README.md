@@ -1,6 +1,6 @@
 # ryszard-twardy.github.io
 
-Static portfolio site for the GitHub Pages user site, three pages: landing (`index.html`), about (`about/`) and privacy (`datenschutz/`). Plain HTML and CSS, no build step, no framework, no CDN: fonts and icons are self-hosted under `assets/`.
+Static portfolio site for the GitHub Pages user site: landing (`index.html`), about (`about/`), privacy (`datenschutz/`), the Kupferkanne case study (`kupferkanne/`) and a short link to its live report (`kupferkanne/report/`). Plain HTML and CSS, no build step, no framework, no CDN: fonts and icons are self-hosted under `assets/`.
 
 Preview locally: run `python -m http.server 8000` in the repo root and open http://localhost:8000.
 

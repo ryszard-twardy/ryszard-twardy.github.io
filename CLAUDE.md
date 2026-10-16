@@ -1,7 +1,7 @@
 # CLAUDE.md – ryszard-twardy.github.io
 
 ## Purpose
-Static portfolio site for the GitHub Pages user site. No build step, no framework, no CDN of any kind: fonts and icons are self-hosted under `assets/` (DSGVO). Pages: `index.html` (landing), `about/`, `datenschutz/`, later `kupferkanne/` (case study).
+Static portfolio site for the GitHub Pages user site. No build step, no framework, no CDN of any kind: fonts and icons are self-hosted under `assets/` (DSGVO). Pages: `index.html` (landing), `about/`, `datenschutz/`, `kupferkanne/` (case study) and `kupferkanne/report/` (redirect to the live report).
 
 ## Design contract
 - Stratus brand system, adapted from stratusstudio.eu. The tracked pages are the reference.
@@ -28,4 +28,4 @@ Static portfolio site for the GitHub Pages user site. No build step, no framewor
 - `.venv/` (uv, Python 3.12, playwright + pillow) is local-only and gitignored.
 
 ## Skills
-- Before every commit that touches HTML or CSS: run the `.claude/skills/web-design-guidelines` review and take `.claude/skills/webapp-testing` screenshots (1280 px and 390 px) into `.scratch/qc/`. `.scratch/qa.py` is the executable form (local, untracked tooling, like `.scratch/qc/` and everything else under the gitignored `.scratch/`): profiles `stratus` (landing), `stratus-about`, `stratus-privacy`; `--cls-runs 5` (every fresh load CLS 0); `--chrome index.html about/index.html datenschutz/index.html` (header and footer identical across pages).
+- Before every commit that touches HTML or CSS: run the `.claude/skills/web-design-guidelines` review and take `.claude/skills/webapp-testing` screenshots (1280 px and 390 px) into `.scratch/qc/`. `.scratch/qa.py` is the executable form (local, untracked tooling, like `.scratch/qc/` and everything else under the gitignored `.scratch/`): profiles `stratus` (landing), `stratus-about` (also the project page: `--profile stratus-about --url http://localhost:8000/kupferkanne/`), `stratus-privacy`; `--cls-runs 5` (every fresh load CLS 0); `--chrome index.html about/index.html datenschutz/index.html kupferkanne/index.html` (header and footer identical across pages).
