@@ -44,7 +44,7 @@
 </header>
 
 <main id="main">
-  <!-- Figures from the rfm-customer-segmentation-kupferkanne docs at e311b57; do not edit a number without re-verifying it. -->
+  <!-- Figures from the rfm-customer-segmentation-kupferkanne docs at v1.4.0 (10f3b6d); do not edit a number without re-verifying it. -->
   <section class="hero kk-hero" aria-labelledby="kk-h1">
     <div class="container kk-hero-wrap">
       <h1 class="h-case" id="kk-h1">Per discount euro, most of the <span class="nowrap">win-back</span> gap comes from the playbook's rates</h1>
@@ -69,29 +69,80 @@
     </div>
   </section>
 
+  <section class="kk-band" aria-labelledby="read-h">
+    <div class="container">
+      <h2 class="h-secondary" id="read-h">Three ways into the decision: one slide, a deck, a report</h2>
+      <ol class="kk-paths">
+        <li class="kk-path">
+          <p class="kk-time">60 seconds</p>
+          <div class="kk-thumb"><img src="../assets/img/kupferkanne-deck-cover-v1.webp" srcset="../assets/img/kupferkanne-deck-cover-v1.webp 1x, ../assets/img/kupferkanne-deck-cover-v1@2x.webp 2x" width="480" height="270" loading="lazy" alt="Cover slide of the executive deck: Kupferkanne win-back discount allocation, with contribution per 1,000 EUR of discount at the playbook's rates, 2,465 EUR in At Risk against 1,335 EUR in Hibernating"></div>
+          <h3>The cover slide</h3>
+          <p>The decision asked for and the headline number.</p>
+          <a href="https://ryszard-twardy.github.io/rfm-customer-segmentation-kupferkanne/kupferkanne_win_back_discount_allocation_deck.pdf#page=1" target="_blank" rel="noopener">Open slide 1 (PDF)<span class="sr-only"> (opens in a new tab)</span></a>
+        </li>
+        <li class="kk-path">
+          <p class="kk-time">3 minutes</p>
+          <div class="kk-thumb"><img src="../assets/img/kupferkanne-deck-summary-v1.webp" srcset="../assets/img/kupferkanne-deck-summary-v1.webp 1x, ../assets/img/kupferkanne-deck-summary-v1@2x.webp 2x" width="480" height="270" loading="lazy" alt="Executive summary slide of the deck: test a 15% rate for Hibernating in a controlled pilot with holdouts, with the problem, the cause and the uncertainty in three columns"></div>
+          <h3>The deck</h3>
+          <p>Eight slides and four appendix slides; each title states its claim.</p>
+          <a href="https://ryszard-twardy.github.io/rfm-customer-segmentation-kupferkanne/kupferkanne_win_back_discount_allocation_deck.pdf" target="_blank" rel="noopener">Open the deck (PDF)<span class="sr-only"> (opens in a new tab)</span></a>
+        </li>
+        <li class="kk-path">
+          <p class="kk-time">10 minutes</p>
+          <div class="kk-thumb"><img src="../assets/img/kupferkanne-report-p1-v1.webp" srcset="../assets/img/kupferkanne-report-p1-v1.webp 1x, ../assets/img/kupferkanne-report-p1-v1@2x.webp 2x" width="191" height="270" loading="lazy" alt="First page of the decision report: the title, the executive summary in three columns and Exhibit 1"></div>
+          <h3>The decision report</h3>
+          <p>Six A4 pages written to be read alone, with the pilot's decision rule in full.</p>
+          <a href="https://ryszard-twardy.github.io/rfm-customer-segmentation-kupferkanne/kupferkanne_win_back_discount_allocation_report.pdf" target="_blank" rel="noopener">Open the report (PDF)<span class="sr-only"> (opens in a new tab)</span></a>
+        </li>
+        <li class="kk-path">
+          <p class="kk-time">Deeper</p>
+          <h3>The working files</h3>
+          <ul class="kk-deeper">
+            <li><a href="https://github.com/ryszard-twardy/rfm-customer-segmentation-kupferkanne/blob/main/docs/methodology.md#win-back-discount-allocation" target="_blank" rel="noopener">Methodology<span class="sr-only"> (opens in a new tab)</span></a></li>
+            <li><a href="https://ryszard-twardy.github.io/rfm-customer-segmentation-kupferkanne/" target="_blank" rel="noopener">EDA notebook<span class="sr-only"> (opens in a new tab)</span></a></li>
+            <li><a href="https://ryszard-twardy.github.io/kupferkanne/report/" target="_blank" rel="noopener">Live Power BI report<span class="sr-only"> (opens in a new tab)</span></a></li>
+            <li><a href="https://github.com/ryszard-twardy/rfm-customer-segmentation-kupferkanne" target="_blank" rel="noopener">Source on GitHub<span class="sr-only"> (opens in a new tab)</span></a></li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <section class="container pb-700 kk-finding" id="finding" aria-labelledby="finding-h">
-    <h2 class="h-secondary" id="finding-h">With either rate applied to both segments, At Risk retains about 1.2 times as much per discount euro</h2>
+    <h2 class="h-secondary" id="finding-h">At the playbook's rates, At Risk retains 1.85 times as much per discount euro; at either common rate, about 1.2 times</h2>
     <p class="kk-lead">The win-back playbook grants its deepest discount to its thinnest margin: 15% off for At Risk, 20% for Hibernating. In contribution per euro of discount, most of the gap between them comes from the playbook's rates rather than from the segments.</p>
-    <figure class="kk-exhibit">
-      <div class="kk-shot">
-        <picture>
-          <source media="(max-width: 1023.98px)" srcset="../assets/img/kupferkanne-e3-contribution-narrow.svg" width="360" height="400">
-          <img src="../assets/img/kupferkanne-e3-contribution.svg" width="1200" height="675" alt="At the playbook's rates, each 1,000 EUR of discount retains 2,465 EUR of contribution in At Risk, against 1,335 EUR in Hibernating" aria-describedby="e3-desc">
-        </picture>
-        <p id="e3-desc" hidden>Horizontal bar chart of contribution per 1,000 EUR of discount at the playbook's rates (15% for At Risk, 20% for Hibernating): At Risk 2,465 EUR, Hibernating 1,335 EUR, a gap of 1,130 EUR. At these rates At Risk retains 1.85 times as much contribution per euro of discount as Hibernating; with either rate applied to both segments, about 1.2 times as much. The figure measures margin efficiency, not incremental return.</p>
+    <figure class="kk-slope-fig">
+      <div class="kk-slope-wrap">
+        <div class="kk-slope">
+          <p class="kk-chart-note">Contribution (EUR) per 1,000 EUR of discount, on orders placed. Filled: the playbook's rates; blue ring: the rate under test.</p>
+<svg class="kk-slope-svg" viewBox="0 0 560 330" role="img" aria-labelledby="slope-t slope-d">
+<title id="slope-t">Contribution per 1,000 EUR of discount at a 15% and a 20% discount</title>
+<desc id="slope-d">At Risk 2,465 EUR at 15% and 1,599 EUR at 20%; Hibernating 2,113 EUR at 15% and 1,335 EUR at 20%. The playbook pairs At Risk at 15% with Hibernating at 20%; Hibernating at 15% is the rate under test.</desc>
+<text class="t-head" x="210" y="24" text-anchor="middle">15% discount</text>
+<text class="t-head" x="410" y="24" text-anchor="middle">20% discount</text>
+<line class="guide" x1="210" y1="44" x2="210" y2="314"/>
+<line class="guide" x1="410" y1="44" x2="410" y2="314"/>
+<line class="l-ar" x1="210" y1="72.0" x2="410" y2="240.6"/>
+<line class="l-hb" x1="210" y1="140.5" x2="410" y2="292.0"/>
+<circle class="d-ar-ring" cx="410" cy="240.6" r="7"/>
+<circle class="d-ar" cx="210" cy="72.0" r="9"/>
+<circle class="d-hb" cx="410" cy="292.0" r="9"/>
+<circle class="d-test" cx="210" cy="140.5" r="9"/>
+<text class="t-num" x="188" y="78.0" text-anchor="end">2,465</text>
+<text class="t-name c-ar" x="188" y="104.0" text-anchor="end">At Risk</text>
+<text class="t-num c-test" x="188" y="146.5" text-anchor="end">2,113</text>
+<text class="t-name c-hb" x="188" y="172.5" text-anchor="end">Hibernating</text>
+<text class="t-num c-muted" x="432" y="246.6">1,599</text>
+<text class="t-num" x="432" y="298.0">1,335</text>
+</svg>
+        </div>
+        <div class="kk-heroes">
+          <div><p class="kk-hero-num">1.85&times;</p><p class="kk-hero-label">in <span class="c-ar">At Risk</span> at the playbook's rates</p></div>
+          <div class="kk-hero-rule"><p class="kk-hero-num"><span class="kk-about">about</span> 1.2&times;</p><p class="kk-hero-label">at either common rate</p></div>
+        </div>
       </div>
       <figcaption>Contribution per 1,000 EUR of discount = (gross margin - discount rate) / discount rate x 1,000 EUR, on orders placed; derivation in <a href="https://github.com/ryszard-twardy/rfm-customer-segmentation-kupferkanne/blob/main/docs/methodology.md#win-back-discount-allocation" target="_blank" rel="noopener">docs/methodology.md<span class="sr-only"> (opens in a new tab)</span></a>.</figcaption>
     </figure>
-    <table class="kk-rates">
-      <caption>Contribution per euro of discount at each rate; the playbook's pairing is marked</caption>
-      <thead>
-        <tr><th scope="col">Segment (gross margin)</th><th scope="col">15% discount</th><th scope="col">20% discount</th></tr>
-      </thead>
-      <tbody>
-        <tr><th scope="row">At Risk (51.97%)</th><td>2.46 <span class="kk-mark">playbook</span></td><td>1.60</td></tr>
-        <tr><th scope="row">Hibernating (46.69%)</th><td>2.11</td><td>1.33 <span class="kk-mark">playbook</span></td></tr>
-      </tbody>
-    </table>
     <ul class="kwadrat kk-points">
       <li><strong>At the playbook's rates.</strong> At Risk retains 36.97 points of contribution after a 15-point discount; Hibernating retains 26.69 after 20. Each 1,000 EUR of discount retains an expected 2,465 EUR in At Risk against 1,335 EUR in Hibernating: 1.85 times as much.</li>
       <li><strong>At one common rate.</strong> With either rate applied to both segments, At Risk retains about 1.2 times as much; swap the rates and the ranking reverses.</li>

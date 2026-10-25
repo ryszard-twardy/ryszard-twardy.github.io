@@ -8,11 +8,12 @@ Static portfolio site for the GitHub Pages user site. No build step, no framewor
 - `tokens.css` holds the design tokens and is the single source of truth; `styles.css` consumes them.
 - Fonts: Montserrat 300/700/900 (headings, wordmark), Lato 400/700 (body), IBM Plex Mono 400 (stack lines, landing only); woff2 from `assets/fonts/` (Fontsource latin subsets), never Google Fonts. `font-display: optional` on every face, and each page preloads every face it uses (no layout shift from the swap race).
 - One accent, `--accent` red rgb(249,9,9), for squares, underlines, rules and the CTA button. Never copper and red together.
+- Project exhibits use their project's own data colours, defined once as `--kk-*` tokens in `tokens.css` and used inside the exhibit only; outside exhibits the red accent stays the only accent.
 - No gradients, no entrance animations, no numbered 01/02 labels. Uppercase only where Stratus uses it: h1, hero subtitle, tile h3. Tiles sit on `--neutral`; no shadow beyond the hover state.
 - Brand assets are never altered: no crop, recolour, glyph or aspect change; proportional downscaling only.
 
 ## Content contract
-- Every figure on the site must be traceable to the source project's public docs.
+- Every project figure on the site must be traceable to the source project's public docs; career facts (the homepage intro and about/) trace to the author's CV, which is kept outside this repository.
 - Missing data stays a placeholder in brackets; never invent numbers, names, or CLI output.
 - Contact email is r.twardy@proton.me and appears nowhere else. No Impressum; `datenschutz/` carries a short privacy note (GitHub Pages hosting, server logs, no cookies, no tracking). A home address never enters the repo.
 

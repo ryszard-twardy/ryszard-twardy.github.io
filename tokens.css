@@ -52,6 +52,13 @@
   --neutral-grey: rgb(229, 223, 223);
   --paper: #ffffff;
   --muted: #5a5257;
+  /* Kupferkanne exhibit colours (notebooks/_brand.yml in the Kupferkanne repository), used inside project exhibits only */
+  --kk-at-risk: #A05A55;
+  --kk-at-risk-text: #9D5752;
+  --kk-hibernating: #8A877F;
+  --kk-hibernating-text: #6F6D65;
+  --kk-test: #4A7AA0;
+  --kk-test-text: #417197;
 
   /* Self-host both families as woff2 (OFL) in assets/fonts/ – Stratus loads them from Google Fonts CDN, we do not. */
   --ff-head: "Montserrat", "Segoe UI", system-ui, sans-serif;

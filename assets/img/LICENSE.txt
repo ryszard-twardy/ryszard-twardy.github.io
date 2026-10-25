@@ -45,12 +45,10 @@ kupferkanne-og-v1.png (1200x630)
    Pillow (LANCZOS) to 1120x630, uncropped, centred on a 1200x630 canvas and saved as a PNG. Added 2026-10-15.
    (c) Ryszard Twardy, all rights reserved.
 
-kupferkanne-e3-contribution.svg (viewBox 1200x675)
-   Contribution per 1,000 EUR of discount exhibit, copied byte for byte from the site owner's MIT-licensed Kupferkanne
-   repository (docs/img/exhibits/e3_contribution_per_1000.svg at v1.3.0); labels are glyph paths, no embedded fonts.
-   Added 2026-10-15. (c) Ryszard Twardy, MIT licence of the source repository.
-
-kupferkanne-e3-contribution-narrow.svg (viewBox 360x400)
-   Small-screen layout of the contribution per 1,000 EUR of discount exhibit, copied byte for byte from the site owner's
-   MIT-licensed Kupferkanne repository (docs/img/exhibits/e3_contribution_per_1000_narrow.svg at v1.3.0); labels are
-   glyph paths, no embedded fonts. Added 2026-10-16. (c) Ryszard Twardy, MIT licence of the source repository.
+kupferkanne-deck-cover-v1.webp, kupferkanne-deck-summary-v1.webp (480x270) and their @2x files (960x540);
+kupferkanne-report-p1-v1.webp (191x270) and its @2x file (382x540)
+   Thumbnails of the cover and executive summary slides of the Kupferkanne executive deck and of page 1 of the decision
+   report (fictional brand, synthetic data), screenshotted with Playwright Chromium from the same render as the v1.4.0
+   PDFs in the site owner's MIT-licensed Kupferkanne repository (docs/, release v1.4.0) and downscaled once with Pillow
+   (LANCZOS, WebP quality 86). Added 2026-10-25.
+   (c) Ryszard Twardy, MIT licence of the source repository.

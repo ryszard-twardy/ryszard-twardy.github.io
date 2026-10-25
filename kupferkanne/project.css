@@ -31,30 +31,65 @@
 
 /* ---- finding ---- */
 .kk-lead { margin-top: 1rem; max-width: 80ch; }
-.kk-exhibit { margin-top: 1.5rem; }
-/* exhibit in a 16/9 frame like .tile .shot, on --paper, no accent; a 360/400 frame for the narrow chart on small screens */
-.kk-shot { aspect-ratio: 16 / 9; background: var(--paper); border: 1px solid var(--neutral-grey); overflow: hidden; }
-@media (max-width: 1023.98px) {
-  .kk-exhibit { max-width: 30rem; }
-  .kk-shot { aspect-ratio: 360 / 400; max-width: 30rem; border: 0; }
-  .kk-shot img { width: 100%; }
-}
 /* the one figcaption rule */
 figcaption { margin-top: .6rem; color: var(--muted); font-size: .9rem; }
-/* the canon rate table (docs/methodology.md:110-113): the H1's evidence, legible at any width */
-.kk-rates { width: 100%; max-width: 38rem; margin-top: 1.6rem; border-collapse: collapse; }
-.kk-rates caption { caption-side: top; text-align: left; font-weight: 700; padding-bottom: .5rem; }
-.kk-rates th, .kk-rates td { padding: .45rem 1rem .45rem 0; border-bottom: 1px solid var(--neutral-grey); text-align: left; vertical-align: top; }
-.kk-rates thead th { font-size: .9rem; color: var(--muted); }
-.kk-rates tbody th { font-weight: 400; }
-.kk-rates td { font-variant-numeric: tabular-nums; }
-.kk-mark { margin-left: .3rem; font-size: .8rem; color: var(--muted); }
 .kk-points { display: grid; gap: .6rem 2.5rem; margin-top: 1.8rem; }
 @media (min-width: 1024px) { .kk-points { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .kk-h3 { font: 700 1.3rem/1.3 var(--ff-head); }
 .kk-finding .kk-h3 { margin-top: 2.2rem; }
 .kk-finding .kk-h3 + p { margin-top: .8rem; }
 .kk-finding .kk-note { margin-top: 1rem; max-width: 80ch; font-size: .9rem; color: var(--muted); }
+
+/* ---- reading map: three lengths of the decision paper and the working files ---- */
+.kk-paths { list-style: none; display: grid; gap: 2.2rem 1.6rem; margin-top: 1.6rem; }
+@media (min-width: 760px) { .kk-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .kk-paths { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.kk-path { display: flex; flex-direction: column; }
+.kk-time { border-left: 2px solid var(--accent); padding-left: .75rem; font: 700 1.35rem/1.2 var(--ff-head); }
+.kk-thumb { position: relative; margin-top: 1rem; aspect-ratio: 16 / 9; background: var(--paper); border: 1px solid var(--neutral-grey); overflow: hidden; }
+.kk-thumb img { position: absolute; inset: 0; margin: auto; width: 100%; height: 100%; object-fit: contain; }
+.kk-path h3 { margin-top: .9rem; font: 700 1.1rem/1.3 var(--ff-head); }
+.kk-path > p:not(.kk-time) { margin-top: .4rem; color: var(--muted); font-size: 1rem; }
+.kk-path > a, .kk-deeper a { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.kk-path > a { margin-top: auto; padding-top: .8rem; }
+.kk-deeper { list-style: none; margin-top: .7rem; display: grid; gap: .55rem; }
+
+/* ---- slope chart: contribution per 1,000 EUR of discount at the two rates, with the two ratios ---- */
+.kk-slope-fig { margin-top: 1.5rem; }
+.kk-slope-wrap { display: grid; gap: 1.5rem 3rem; align-items: center; }
+@media (min-width: 900px) { .kk-slope-wrap { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); } }
+.kk-slope { background: var(--paper); border: 1px solid var(--neutral-grey); padding: 1.1rem 1.2rem .6rem; }
+.kk-chart-note { font-size: .9rem; color: var(--muted); max-width: 34rem; }
+.kk-slope-svg { display: block; width: 100%; max-width: 560px; height: auto; margin: .6rem auto 0; font-family: var(--ff-body); }
+.kk-slope-svg .t-head { font-size: 15px; font-weight: 700; fill: var(--muted); }
+.kk-slope-svg .t-num { font-size: 19px; font-weight: 700; fill: var(--ink); font-variant-numeric: tabular-nums; }
+.kk-slope-svg .t-name { font-size: 15px; font-weight: 700; }
+.kk-slope-svg .guide { stroke: var(--neutral-grey); stroke-width: 1.5; }
+.kk-slope-svg .l-ar { stroke: var(--kk-at-risk); stroke-width: 4; stroke-linecap: round; }
+.kk-slope-svg .l-hb { stroke: var(--kk-hibernating); stroke-width: 4; stroke-linecap: round; }
+.kk-slope-svg .d-ar { fill: var(--kk-at-risk); }
+.kk-slope-svg .d-hb { fill: var(--kk-hibernating); }
+.kk-slope-svg .d-ar-ring { fill: var(--paper); stroke: var(--kk-at-risk); stroke-width: 3.5; }
+.kk-slope-svg .d-test { fill: var(--paper); stroke: var(--kk-test); stroke-width: 4.5; }
+.kk-slope-svg .c-ar { fill: var(--kk-at-risk-text); }
+.kk-slope-svg .c-hb { fill: var(--kk-hibernating-text); }
+.kk-slope-svg .c-test { fill: var(--kk-test-text); }
+.kk-slope-svg .c-muted { fill: var(--muted); }
+.kk-heroes { display: grid; gap: 1.4rem; }
+.kk-hero-rule { border-top: 1px solid var(--neutral-grey); padding-top: 1.4rem; }
+.kk-hero-num { font: 300 clamp(2.8rem, 6vw, 4rem)/1 var(--ff-head); }
+.kk-about { font: 400 1.1rem/1 var(--ff-body); vertical-align: .15em; margin-right: .2rem; }
+.kk-hero-label { margin-top: .5rem; font-size: 1.05rem; }
+.kk-heroes .c-ar { color: var(--kk-at-risk-text); }
+@media (max-width: 599.98px) {
+  .kk-slope { padding-inline: .6rem; }
+  .kk-slope-svg .t-head { font-size: 22px; }
+  .kk-slope-svg .t-num { font-size: 27px; }
+  .kk-slope-svg .t-name { font-size: 21px; }
+}
+
+/* Reading links keep their colour and gain a thicker underline on hover. */
+.kk-path > a:hover, .kk-deeper a:hover { text-decoration-thickness: 2px; }
 
 /* ---- pipeline band ---- */
 .kk-band { background: var(--neutral); padding-block: var(--s-700); }
@@ -104,5 +139,4 @@ figcaption { margin-top: .6rem; color: var(--muted); font-size: .9rem; }
 
 @media (max-width: 760px) {
   .kk-hero-wrap { padding-block: 2rem 2.2rem; }
-  .kk-mark { display: block; margin-left: 0; }
 }
