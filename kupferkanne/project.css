@@ -44,7 +44,7 @@ figcaption { margin-top: .6rem; color: var(--muted); font-size: .9rem; }
 .kk-paths { list-style: none; display: grid; gap: 2.2rem 1.6rem; margin-top: 1.6rem; }
 @media (min-width: 760px) { .kk-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1024px) { .kk-paths { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.kk-path { display: flex; flex-direction: column; }
+.kk-path { display: flex; flex-direction: column; background: var(--paper); padding: 1.1rem 1.1rem 1.2rem; border-left: 4px solid transparent; transition: border-color .15s, box-shadow .2s; }
 .kk-time { border-left: 2px solid var(--accent); padding-left: .75rem; font: 700 1.35rem/1.2 var(--ff-head); }
 .kk-thumb { position: relative; margin-top: 1rem; aspect-ratio: 16 / 9; background: var(--paper); border: 1px solid var(--neutral-grey); overflow: hidden; }
 .kk-thumb img { position: absolute; inset: 0; margin: auto; width: 100%; height: 100%; object-fit: contain; }
@@ -53,6 +53,13 @@ figcaption { margin-top: .6rem; color: var(--muted); font-size: .9rem; }
 .kk-path > a, .kk-deeper a { font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .kk-path > a { margin-top: auto; padding-top: .8rem; }
 .kk-deeper { list-style: none; margin-top: .7rem; display: grid; gap: .55rem; }
+/* a reading card with one link is that link as a whole (stretched link, as article.tile on the homepage); the Deeper card keeps its separate links */
+.kk-path:has(> a) { position: relative; }
+.kk-path > a::after { content: ""; position: absolute; inset: 0; }
+.kk-path > a:focus-visible { outline: none; }
+.kk-path:has(> a:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
+.kk-path:has(> a):hover, .kk-path:has(> a:focus-visible) { border-left-color: var(--accent); box-shadow: var(--shadow-hover); }
+.kk-path:has(> a):hover > a { text-decoration-thickness: 2px; }
 
 /* ---- slope chart: contribution per 1,000 EUR of discount at the two rates, with the two ratios ---- */
 .kk-slope-fig { margin-top: 1.5rem; }

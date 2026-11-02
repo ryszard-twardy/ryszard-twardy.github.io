@@ -9,7 +9,7 @@ Static portfolio site for the GitHub Pages user site. No build step, no framewor
 - Fonts: Montserrat 300/700/900 (headings, wordmark), Lato 400/700 (body), IBM Plex Mono 400 (stack lines, landing only); woff2 from `assets/fonts/` (Fontsource latin subsets), never Google Fonts. `font-display: optional` on every face, and each page preloads every face it uses (no layout shift from the swap race).
 - One accent, `--accent` red rgb(249,9,9), for squares, underlines, rules and the CTA button. Never copper and red together.
 - Project exhibits use their project's own data colours, defined once as `--kk-*` tokens in `tokens.css` and used inside the exhibit only; outside exhibits the red accent stays the only accent.
-- No gradients, no entrance animations, no numbered 01/02 labels. Uppercase only where Stratus uses it: h1, hero subtitle, tile h3. Tiles sit on `--neutral`; no shadow beyond the hover state.
+- No gradients, no entrance animations, no numbered 01/02 labels. Uppercase only where Stratus uses it: h1, hero subtitle, tile h3. Homepage tiles sit on `--neutral`; the project page's reading cards are `--paper` cards on its `--neutral` band; no shadow beyond the hover state (`--shadow-hover`).
 - Brand assets are never altered: no crop, recolour, glyph or aspect change; proportional downscaling only.
 
 ## Content contract

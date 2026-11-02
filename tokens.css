@@ -52,6 +52,7 @@
   --neutral-grey: rgb(229, 223, 223);
   --paper: #ffffff;
   --muted: #5a5257;
+  --shadow-hover: 0 8px 20px rgba(0, 0, 0, .12); /* hover lift of tiles and cards; same value as the homepage tiles */
   /* Kupferkanne exhibit colours (notebooks/_brand.yml in the Kupferkanne repository), used inside project exhibits only */
   --kk-at-risk: #A05A55;
   --kk-at-risk-text: #9D5752;
